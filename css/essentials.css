@@ -5,8 +5,7 @@
 }
 
 body {
-    background: #cccccc;
-    box-sizing: border-box;
+    background: #8facbd;
     height: 100vh;
 }
 
@@ -37,7 +36,7 @@ div#copyright {
     background: #555;
 }
 
-#navbar {
+.navbar {
     overflow: hidden;
     width: 100%;
     position: fixed;
@@ -45,7 +44,7 @@ div#copyright {
     z-index: 1;
 }
 
-#navbar a {
+.navbar a {
     float: left;
     font-size: 16px;
     color: #f2f2f2;
@@ -73,12 +72,12 @@ div#copyright {
     z-index: 1;
 }
 
-#navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover, .dropdown:hover .dropbtn {
     transition: .3s ease;
     background-color: rgb(245, 83, 83);
 }
 
-#navbar a:not(:hover), .dropdown:not(:hover) .dropbtn {
+.navbar a:not(:hover), .dropdown:not(:hover) .dropbtn {
     transition: .3s ease;
 }
 
@@ -125,10 +124,10 @@ div#copyright {
     display: block;
 }
 
-#navbar a.active, #navbar button.active {
+.navbar a.active, #navbar button.active {
     background-color: rgb(245, 83, 83);
 }
 
-#navbar button:hover {
+.navbar button:hover {
     cursor: pointer;
 }
