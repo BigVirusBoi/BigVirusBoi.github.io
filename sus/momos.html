@@ -54,10 +54,10 @@
 
     function download() {
         var link = document.createElement('a');
-        link.setAttribute('download', 'sus');
+        link.setAttribute('download', 'momos');
         link.href = 'momos.txt';
         document.body.appendChild(link);
         link.click;
-        document.body.removeChild(link);
+        link.remove();
     }
 </script>
