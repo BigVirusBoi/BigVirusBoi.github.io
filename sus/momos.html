@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/6a610a356a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="momos.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="momos.txt" download=""><button class="cool-button"><i class="fa fa-download"></i> Download</button></a>
+</body>
+</html>
+
+<!--Stops all transitions on load-->
+<script> </script>
+<script type="text/javascript">
+    const buttons = document.querySelectorAll('button');
+    let r = [];
+    buttons.forEach(btn => {
+        btn.addEventListener('mousedown', function(e) {
+            if (e.which === 1) {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                let ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.animation = 'animate 2s linear forwards';
+                this.appendChild(ripple);
+                r.push(ripple);
+
+                setTimeout(() => {
+                    // Check if ripple is big enough then remove if not pressed
+                }, 200);
+            }
+        });
+        btn.addEventListener('mouseup', function(e) {
+            r.forEach(ripple => {
+                if (btn.classList.contains('disables')) {
+                    btn.disabled = true;
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        ripple.remove();
+                    }, 1500);
+                } else {
+                    setTimeout(() => {
+                        ripple.style.opacity = 0;
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 200);
+                    }, 200);
+                }
+                r.pop(ripple);
+            });
+        });
+        btn.addEventListener('mouseout', function(e) {
+            r.forEach(ripple => {
+                ripple.style.opacity = 0;
+                setTimeout(() => {
+                    ripple.remove();
+                }, 500);
+                r.pop(ripple);
+            });
+        });
+    });
+</script>
