@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="momos.txt" download=""><button class="cool-button"><i class="fa fa-download"></i> Download</button></a>
+    <a href="momos.txt" download><button class="cool-button"><i class="fa fa-download"></i> Download</button></a>
 </body>
 </html>
 
@@ -28,28 +28,15 @@
                 ripple.style.animation = 'animate 2s linear forwards';
                 this.appendChild(ripple);
                 r.push(ripple);
-
-                setTimeout(() => {
-                    // Check if ripple is big enough then remove if not pressed
-                }, 200);
             }
         });
         btn.addEventListener('mouseup', function(e) {
             r.forEach(ripple => {
-                if (btn.classList.contains('disables')) {
-                    btn.disabled = true;
-                    setTimeout(() => {
-                        btn.disabled = false;
-                        ripple.remove();
-                    }, 1500);
-                } else {
-                    setTimeout(() => {
-                        ripple.style.opacity = 0;
-                        setTimeout(() => {
-                            ripple.remove();
-                        }, 200);
-                    }, 200);
-                }
+                btn.disabled = true;
+                setTimeout(() => {
+                    btn.disabled = false;
+                    ripple.remove();
+                }, 1500);
                 r.pop(ripple);
             });
         });
