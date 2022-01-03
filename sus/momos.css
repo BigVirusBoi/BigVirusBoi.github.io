@@ -20,6 +20,9 @@ button {
     border: none;
     position: relative;
     display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
     padding: 12px 24px;
     margin: 10px 5px;
     font-size: 18px;
@@ -29,12 +32,6 @@ button {
     background: royalblue;
     transition: .3s ease;
     opacity: 1;
-}
-
-button a {
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
 }
 
 button:not(:disabled) {
