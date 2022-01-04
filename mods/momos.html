@@ -11,17 +11,18 @@
     <p>A mod for epic 1.18.1 survival Minecraft</p>
     <button><i class="fa fa-download"></i> Download</button>
     <p id="ver"></p>
-    <!--<a download id="download" hidden></a>-->
+    <a download id="download" hidden></a>
 </body>
 </html>
 
 <!--Stops all transitions on load-->
 <script> </script>
-<script type="text/javascript">
+<script type="text/javascript" id="remove">
     // TODO automatically set the latest version
     const version = '1.18.1-v0.1-build2';
     document.getElementById('ver').innerHTML = version;
     document.getElementById('download').href = '/mods/downloads/MomoSus-' + version + '.jar';
+    document.getElementById('remove').remove();
 </script>
 <script type="text/javascript">
     const buttons = document.querySelectorAll('button');
