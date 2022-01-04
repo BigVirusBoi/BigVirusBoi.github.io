@@ -16,6 +16,10 @@ body {
     transition: 1s ease;
 }
 
+p#ver {
+    font-size: small;
+}
+
 button {
     border: none;
     position: relative;
