@@ -67,11 +67,11 @@ span.ripple {
 }
 
 @keyframes animate {
-    0% {
+    from {
         height: 0px;
         width: 0px;
     }
-    100% {
+    to {
         height: 5000px;
         width: 5000px;
     }

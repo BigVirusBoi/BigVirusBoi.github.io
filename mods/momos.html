@@ -10,13 +10,19 @@
     <h1>MomoSus Mod</h1>
     <p>A mod for epic 1.18.1 survival Minecraft</p>
     <button><i class="fa fa-download"></i> Download</button>
-    <p id="ver">1.18.1-v0.1-build2</p>
-    <a href="/sus/downloads/MomoSus-1.18.1-v0.1-build2.jar" download id="download" hidden></a>
+    <p id="ver"></p>
+    <!--<a download id="download" hidden></a>-->
 </body>
 </html>
 
 <!--Stops all transitions on load-->
 <script> </script>
+<script type="text/javascript">
+    // TODO automatically set the latest version
+    const version = '1.18.1-v0.1-build2';
+    document.getElementById('ver').innerHTML = version;
+    document.getElementById('download').href = '/mods/downloads/MomoSus-' + version + '.jar';
+</script>
 <script type="text/javascript">
     const buttons = document.querySelectorAll('button');
     let r = [];
@@ -36,7 +42,7 @@
         });
         btn.addEventListener('mouseup', function(e) {
             r.forEach(ripple => {
-                document.getElementById('download').click();
+                //document.getElementById('download').click();
                 btn.disabled = true;
                 setTimeout(() => {
                     btn.disabled = false;
