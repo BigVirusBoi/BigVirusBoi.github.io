@@ -17,10 +17,12 @@ body {
 #nice {
     display: block;
     font-family: 'Roboto', sans-serif;
+    font-size: 30px;
     color: white;
     z-index: 10;
     background: rgb(61, 61, 61);
     padding: 10px 20px;
+    border: none;
     border-radius: 10px;
     box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.5);
     transition: .2s ease;
@@ -34,5 +36,24 @@ body {
 
 #particles {
     position: absolute;
+    z-index: -1;
     margin: 0;
+}
+
+.ripple {
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: 5;
+    animation: expand 1s ease;
+}
+
+@keyframes expand {
+    0% {height:0px;width:0px;}
+    80% {height:2000px;width:2000px;}
+    100% {opacity:0;}
 }
