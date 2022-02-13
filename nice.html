@@ -42,6 +42,7 @@
     context.translate(0.5, 0.5);
 
     var particles = {}, particleIndex = 0;
+    const linesDone = [];
     
     function Particle() {
         this.x = getRandomIntInclusive(0, canvas.width);
@@ -67,7 +68,7 @@
         this.life++;
 
         // If particle is old, remove it
-        if (this.life >= 200) {
+        if (this.life >= 200 || this.y < 0 || this.x < 0 || this.x > canvas.innerWidth) {
             delete particles[this.id];
         }
 
@@ -77,6 +78,23 @@
         context.arc(this.x, this.y, this.size, 0, Math.PI * 2, true); 
         context.closePath();
         context.fill();
+
+        for (var i in particles) {
+            var p = particles[i];
+            if (!linesDone.includes(p)) {
+                var a = this.x - p.x;
+                var b = this.y - p.y;
+                var c = Math.hypot(a, b);
+
+                if (c < 150) {
+                    context.moveTo(this.x, this.y);
+                    context.lineTo(p.x + (p.size / 2), p.y + (p.size / 2));
+                    context.strokeStyle = 'rgba(255,255,255,' + (c/1600) + ')';
+                    context.stroke();
+                }
+            }
+        }
+        linesDone[i] = this;
     }
 
     setInterval(function() {
@@ -91,6 +109,7 @@
             }
         }
 
+        linesDone.length = 0;
         for (var i in particles) {
             particles[i].draw();
         }
