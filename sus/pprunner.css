@@ -1,7 +1,3 @@
-* {
-    user-select: none;
-}
-
 body {
     padding: 0;
     margin: 0;
@@ -13,11 +9,16 @@ body {
     height: 100vh;
     overflow: hidden;
     font-family: 'Roboto', sans-serif;
+    user-select: none;
 }
 
 p {
     color: white;
     font-size: 2vh;
+}
+
+p strong {
+    user-select: all;
 }
 
 h1 {
