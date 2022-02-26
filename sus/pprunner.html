@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPRunner Bingo</title>
+    <link rel="stylesheet" href="pprunner.css">
+</head>
+<body>
+    <table id="bingo">
+        
+    </table>
+</body>
+</html>
+
+<script>
+    var cards = [];
+
+    function load() {
+        var table = document.getElementById('bingo');
+        for (var i = 0; i < 5; i++) {
+            var tr = document.createElement('tr');
+            for (var x = 0; x < 5; x++) {
+                var td = document.createElement('td');
+                var index = Math.floor(Math.random() * cards.length);
+                if (cards.length === 0) {
+                    td.innerHTML = '-';
+                } else {
+                    td.innerHTML = cards[index];
+                }
+                cards.splice(index, 1);
+                tr.appendChild(td);
+            }
+            tr.childNodes.forEach(cell => {
+                cell.addEventListener('click', () => {
+                    if (cell.classList.contains('clicked')) {
+                        cell.classList.remove('clicked');
+                    } else {
+                        cell.classList.add('clicked');
+                    }
+                });
+            });
+            table.appendChild(tr);
+        }
+    }
+
+    cards = [
+        "game crash",
+        "source engine moment",
+        "\"it worked in testing\""
+    ];
+    load();
+</script>

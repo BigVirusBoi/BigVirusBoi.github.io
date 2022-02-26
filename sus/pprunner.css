@@ -1,0 +1,36 @@
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: rgb(21, 19, 39);
+    height: 100vh;
+    overflow: hidden;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr {
+    height: 80px;
+}
+
+td {
+    height: 100%;
+    width: 80px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    text-align: left;
+    background: white;
+    cursor: pointer;
+}
+
+td:hover:not(.clicked) {
+    background: gray;
+}
+
+td.clicked {
+    background: green;
+}
